@@ -18,26 +18,21 @@ class UserSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Admin',
-            'email' => 'admin@com.com',
+            'email' => 'admin@app.com',
             'role_id' => 1
         ]);
 
         User::factory()->create([
-            'name' => 'Turash',
-            'email' => 'turash@com.com',
-            'role_id' => 1
-        ]);
-
-        User::factory()->create([
-            'name' => 'customer',
-            'email' => 'customer@app.com',
+            'name' => 'Officer',
+            'email' => 'officer@app.com',
             'role_id' => 2
         ]);
 
         User::factory()->create([
-            'name' => 'Peter',
-            'email' => 'peter@app.com',
-            'role_id' => 2
+            'name' => 'Student',
+            'email' => 'student@app.com',
+            'role_id' => 3
         ]);
+
     }
 }

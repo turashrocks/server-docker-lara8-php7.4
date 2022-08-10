@@ -45,26 +45,26 @@ class AuthController extends Controller
     {
         $this->middleware('auth:api')->except(['login', 'register']);
     }
-    public function register(Request $request, $token)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|unique:users',
-            'password' => 'required|confirmed',
-        ]);
+    // public function register(Request $request, $token)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'email' => 'required|unique:users',
+    //         'password' => 'required|confirmed',
+    //     ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password)
-        ]);
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => bcrypt($request->password)
+    //     ]);
 
-        return response()->json([
-            'message'=>'successfully registered',
-            'user'=>$user,
-            'token'=>$token
-        ]);
-    }
+    //     return response()->json([
+    //         'message'=>'successfully registered',
+    //         'user'=>$user,
+    //         'token'=>$token
+    //     ]);
+    // }
 
     public function responseToken($token)
     {
@@ -98,7 +98,8 @@ class AuthController extends Controller
 
     public function user()
     {
-        return auth()->user();
+        // return auth()->user();
+        return User::paginate();
     }
 
     public function logout()

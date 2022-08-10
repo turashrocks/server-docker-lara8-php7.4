@@ -1,0 +1,20 @@
+Hello
+Welcome to the instructions of my assignment. Below are the contents for the system:
+
+0) Github locations for Laravel and Vue
+server-docker-lara8-php7.4 - contains the Laravel app. The instructions to run the server are given in Readme.md
+dashboard-vue3-for-server-docker-lara8-php7.4-: contains the vue3 app
+
+1) Docker Run with Laravel, Phpmyadmin, nginx
+Now I will run the docker instance.
+As you can see the app is running along with Phpmyadmin
+2) Postman API display
+Now I will display the postman and some API endpoints.
+Department and Result API endpoints can perform CRUD
+2) Vue3 Frontend
+Now I will turn on the Vue3 Frontend.
+All login operations are being done with JWT Token. No passport or sanctum used
+
+There are tons of ways to improve. I hope you like my presentation. Thank you
+
+

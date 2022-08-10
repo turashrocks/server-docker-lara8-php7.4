@@ -14,16 +14,19 @@ class UserController extends Controller
 {
     public function index()
     {
-        return UserResource::collection(User::with('role')->paginate());
+        return UserResource::collection(User::paginate());
     }
 
-    public function store(UserCreateRequest $request)
+    public function register(UserCreateRequest $request)
     {
         $user = User::create(
-            $request->only('name', 'email', 'role_id')
-            + ['password' => Hash::make('password')]
+            $request->only('name', 'email')
+            + [
+                'password' => Hash::make($request->input('password'))
+            ]
         );
-        return response(new UserResource($user), Response::HTTP_CREATED);
+
+        return response($user, Response::HTTP_CREATED);
     }
 
     public function show($id)

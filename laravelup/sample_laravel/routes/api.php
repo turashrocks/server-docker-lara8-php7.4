@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\DepartmentController;
 
 
 /*
@@ -16,12 +19,27 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/test-data', function(){
-    return 'hello';
-});
+// Route::get('/test-data', function(){
+//     return 'hello';
+// });
 
-Route::post('register', [AuthController::class, 'register']);
+Route::post('register', [UserController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
-Route::post('refresh', [AuthController::class, 'refresh']);
-Route::get('user', [AuthController::class, 'user']);
-Route::post('logout', [AuthController::class, 'logout']);
+
+Route::group(['middleware' => 'auth:api'], function () {
+    // Route::get('user', 'UserController@user');
+    Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::get('user', [AuthController::class, 'user']);
+    Route::post('logout', [AuthController::class, 'logout']);
+
+    Route::resource('students', 'App\Http\Controllers\StudentController');
+
+    Route::resource('departments', 'App\Http\Controllers\DepartmentController');
+
+    // Route::get('departments', [DepartmentController::class, 'index']);
+    // Route::get('departments/{id}', [DepartmentController::class, 'show']);
+    // Route::post('departments', [DepartmentController::class, 'store']);
+    // Route::put('departments/{id}', [DepartmentController::class, 'update']);
+    // Route::delete('departments/{id}', [DepartmentController::class, 'destroy']);
+    // Route::get('department', [DepartmentController::class, 'department']);
+});
