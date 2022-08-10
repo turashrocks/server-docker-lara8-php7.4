@@ -16,3 +16,5 @@ You can see laravel is working on docker there.
 http://localhost:7000/
 Phpmyadmin running
 root, root
+
+file 'tmss-test.post_collection.json' contains the API endpoints which could be run in Postman
