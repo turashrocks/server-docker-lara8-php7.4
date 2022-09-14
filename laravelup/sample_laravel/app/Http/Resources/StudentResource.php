@@ -18,7 +18,7 @@ class StudentResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'batch_name' => $this->batch_name,
-            'department_id' => $this->department_id
+            'department' => $this->department
         ];
     }
 }

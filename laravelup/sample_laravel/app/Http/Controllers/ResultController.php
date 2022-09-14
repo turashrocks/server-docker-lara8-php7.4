@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Result;
+use App\Result;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller

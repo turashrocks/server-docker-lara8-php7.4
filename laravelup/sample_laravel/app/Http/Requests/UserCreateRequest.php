@@ -14,12 +14,21 @@ class UserCreateRequest extends FormRequest
 {
     /**
      * @OA\Property(
-     *   title="name"
+     *   title="first_name"
      * )
      *
      * @var string
      */
-    public $name;
+    public $first_name;
+
+    /**
+     * @OA\Property(
+     *   title="last_name"
+     * )
+     *
+     * @var string
+     */
+    public $last_name;
 
     /**
      * @OA\Property(
@@ -29,6 +38,15 @@ class UserCreateRequest extends FormRequest
      * @var string
      */
     public $email;
+
+    /**
+     * @OA\Property(
+     *   title="role_id"
+     * )
+     *
+     * @var int
+     */
+    public $role_id;
 
     /**
      * Determine if the user is authorized to make this request.
@@ -48,8 +66,10 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'email' => 'required|email'
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'role_id' => 'required',
         ];
     }
 }

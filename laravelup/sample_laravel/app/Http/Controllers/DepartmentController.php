@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DepartmentCreateRequest;
 use App\Http\Resources\DepartmentResource;
-use App\Models\Department;
+use App\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,16 +21,6 @@ class DepartmentController extends Controller
         // return Department::all();
         $departments = Department::paginate();
         return DepartmentResource::collection($departments);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

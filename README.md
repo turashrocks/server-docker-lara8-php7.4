@@ -6,8 +6,8 @@ $ cd server-docker-lara8-php7.4
 $ docker-compose up -d --build
 $ docker-compose exec laravelup ash
 # In the laravel container:
-$ 
-$ sh -x ../laravelup_build.sh
+$ cd sample_laravel
+$ sh -x ../../laravelup2_build.sh
 ```
 
 And then see http://localhost:8080

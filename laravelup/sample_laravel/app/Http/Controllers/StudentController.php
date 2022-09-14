@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StudentCreateRequest;
 use App\Http\Resources\StudentResource;
-use App\Models\Student;
+use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,8 +19,10 @@ class StudentController extends Controller
     public function index()
     {
         // return Student::all();
+
         $students = Student::with('department')->paginate();
         return StudentResource::collection($students);
+        // return StudentResource::collection(Student::all());
     }
 
     /**
